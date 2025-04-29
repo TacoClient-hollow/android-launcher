@@ -73,7 +73,7 @@ fun Context.startLauncher(
             }
 
             ZipFile(mcInfo.sourceDir).use { zipFile ->
-                (0 .. 2).forEach { i ->
+                (0 .. 5).forEach { i ->
                     zipFile.getEntry("classes${if (i == 0) "" else i}.dex")?.let { dexEntry ->
                         copyFile(zipFile.getInputStream(dexEntry), File(cacheDexDir, dexEntry.name)).apply {
                             if (setReadOnly()) {
